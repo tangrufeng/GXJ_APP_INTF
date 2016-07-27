@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<meta charset='utf-8'>
+<html>
+<head>
+    <title>接口列表</title>
+    <script type="text/javascript">
+        function addOrder(){
+//var postData = "{\"a\":\"aaa\",\"openId\":\"xxxxxxxx\", \"buy\":\"USD\", \"sell\":\"CNY\", \"takeDate\":\"2016-06-06\", \"cityId\":\"1\", \"areaId\":\"2\", \"sum\":\"33\", \"changer\":\"张三\", \"idType\":\"11\", \"idNo\":\"DD\", \"referenceID\":\"111\", \"moblieNo\":\"13700000000\", \"storeId\":\"1\", \"rate\":\"111\", \"status\":\"1\"}";
+//var postData="{\"name\":\"name1\"}"
+            var postData="{\"userId\": \"1\", \"deviceId\": \"11111\", \"tag\": \"fll\", \"weekDay\": \"123\"}";
+            console.log(postData);
+            var xhr = new XMLHttpRequest();
+
+            xhr.open("POST", "user/addPlayTask", true);
+            xhr.setRequestHeader("Content-type","application/json; charset=utf-8");
+            xhr.onreadystatechange = function(){
+                var XMLHttpReq = xhr;
+                if (XMLHttpReq.readyState == 4) {
+                    if (XMLHttpReq.status == 200) {
+                        var text = XMLHttpReq.responseText;
+                        alert(text);
+                        console.log(text);
+                    }
+                }
+            };
+            xhr.send(postData);
+        }
+    </script>
+</head>
+<body>
+<a href="app/recommendList?page=1&pageSize=10&userToken=xxxxxxxxxxx">获取推荐课程列表</a>
+<br><br>
+<a href="app/hotList?page=1&pageSize=10&userToken=xxxxxxxxxxx">获取热点课程列表</a>
+<br><br>
+<a href="app/newestList?page=1&pageSize=10&userToken=xxxxxxxxxxx">获取最新课程列表</a>
+<br><br>
+<a href="app/audioList?courseId=1">获取课程音频列表</a>
+<br><br>
+<a href="app/courseList">获取分类课程列表</a>
+<br><br>
+<a href="app/cataList">获取推荐课程列表</a>
+<br><br>
+<a href="app/search">搜索课程</a>
+<br><br>
+<a href="javascript:addOrder()">新增订单</a>
+<br><br>
+<br><br>
+<a href="app/sendValiCode.do?&mobileNo=xxxxx">发送短信验证码</a>
+<br><br>
+<a href="app/valiMobile.do?openId=xxxx&mobileNo=xxxxx&valiCode=xxx">验证短信验证码</a>
+<br><br><br><br>
+</body>
+</html>
